@@ -1,0 +1,247 @@
+@charset "UTF-8";
+
+
+@import url('https://fonts.googleapis.com/css2?family=Jersey+25&display=swap');
+
+    /* Reset e Variáveis */
+    :root {
+      --bg-color: #413f3f;
+      --surface-color: #dddddd;
+      --text-main: #413f3f;
+      --text-light: #f5f5f5;
+      --shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+      --font-jersey: 'Jersey 25', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      min-height: 100%;
+    }
+
+    body {
+      background-color: #413f3f;
+      color: whitesmoke;
+      font-family: Arial, sans-serif, Helvetica;
+      line-height: 1.6;
+      padding: 10px;
+    }
+
+    .interface {
+      background-color: #dddddd;
+      margin: 0 auto;
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: rgba(0, 0, 0, 0.8) 0px 4px 10px;
+      max-width: 1000px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Navegação */
+    nav#menu {
+      margin-bottom: 10px;
+    }
+
+    nav#menu ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    nav#menu a {
+      color: #413f3f;
+      text-decoration: none;
+      font-family: 'jersey 25', sans-serif;
+      font-size: clamp(20px, 5vw, 24px);
+      padding: 10px 15px; /* Touch-friendly padding */
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      display: inline-block;
+    }
+
+    nav#menu a:hover {
+      background-color: var(--text-main);
+      color: #fff;
+      background-color: #413f3f;
+    }
+
+    
+
+    /* Cabeçalho */
+    header#cabecalho {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    header#cabecalho h1 {
+      font-family: var(--font-jersey);
+      font-size: clamp(40px, 10vw, 64px);
+      color: var(--text-light);
+      padding: 20px;
+      background-color: var(--bg-color);
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    header#cabecalho h2 {
+      font-family: var(--font-jersey);
+      font-size: clamp(24px, 6vw, 32px);
+      color: var(--text-light);
+      padding: 15px;
+      background-color: var(--bg-color);
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    header#cabecalho p, .section-content p {
+      font-family: var(--font-jersey);
+      font-size: clamp(18px, 4vw, 20px);
+      color: var(--text-light);
+      padding: 20px;
+      background-color: var(--bg-color);
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+
+    /* Conteúdo Principal Layout */
+    .main-content {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    section#corpo h2, aside#lateral h2 {
+      font-family: var(--font-jersey);
+      font-size: clamp(28px, 7vw, 36px);
+      color: var(--text-main);
+      padding: 10px 0;
+      text-align: center;
+    }
+
+    /* Imagem com Legenda */
+    figure.nat-image {
+      border: var(--text-light) double 6px;
+      box-shadow: var(--shadow);
+      position: relative;
+      margin: 10px auto;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #000;
+      aspect-ratio: 4/5;
+      width: 100%;
+      max-width: 450px;
+    }
+
+    figure.nat-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    figure.nat-image figcaption {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.85);
+      color: var(--text-light);
+      opacity: 0;
+      transition: opacity 0.5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      text-align: center;
+      /* Ensure caption is accessible on touch if clicked */
+      pointer-events: none; 
+    }
+
+    /* Show caption on hover (desktop) and active/focus (mobile tap) */
+    figure.nat-image:hover figcaption,
+    figure.nat-image:active figcaption,
+    figure.nat-image:focus figcaption {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    figure.nat-image figcaption p {
+      background: none;
+      box-shadow: none;
+      padding: 0;
+      font-size: clamp(14px, 3.5vw, 18px);
+      margin-bottom: 0;
+    }
+
+    /* Aside sections spacing */
+    aside#lateral {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    /* Rodapé */
+    footer#rodape {
+      margin-top: 10px;
+      padding-top: 20px;
+      border-top: var(--bg-color) double 4px;
+      text-align: center;
+      font-family: var(--font-jersey);
+      color: var(--text-main);
+    }
+
+    footer#rodape h6 {
+      font-size: 18px;
+      font-weight: normal;
+      margin-bottom: 5px;
+    }
+
+    footer#rodape a {
+      color: var(--text-main);
+      text-decoration: underline;
+    }
+
+    /* Layout Responsivo para Desktop */
+    @media (min-width: 850px) {
+      body {
+        padding: 30px;
+      }
+      .interface {
+        padding: 40px;
+      }
+      .main-content {
+        grid-template-columns: 1fr 1fr;
+      }
+    } 
+
+
+
+    @media (max-width:480px){
+
+    nav#menu ul{
+        gap:5px;
+    }
+
+    nav#menu a{
+        font-size:16px;
+        padding:8px;
+    }
+
+}
+
+ 
